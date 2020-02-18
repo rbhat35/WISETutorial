@@ -1,0 +1,5 @@
+.env
+*.pyc
+**/gen_*
+**/logs
+pid
