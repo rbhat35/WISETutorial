@@ -6,6 +6,10 @@ readonly USERNAME="<FILL IN>"
 # If using virtual machines (appendix A of the tutorial), set with "vm".
 readonly HOSTS_TYPE="<FILL IN>"
 
+# If using profile MicroblogBareMetalD430, set with "d430".
+# If using profile MicroblogBareMetalC8220, set with "c8220".
+readonly HARDWARE_TYPE="<FILL IN>"
+
 # Hostnames of each tier.
 # Example (bare metal host): pc853.emulab.net
 # Example (virtual machine): 10.254.3.128
