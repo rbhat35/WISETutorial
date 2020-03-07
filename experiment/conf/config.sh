@@ -10,6 +10,12 @@ readonly HOSTS_TYPE="<FILL IN>"
 # If using profile MicroblogBareMetalC8220, set with "c8220".
 readonly HARDWARE_TYPE="<FILL IN>"
 
+# Maximum length to which the queue of pending connections of a socket may grow.
+SOMAXCONN=64
+
+# Number of CPU cores to use.
+CPUCORES=4
+
 # Hostnames of each tier.
 # Example (bare metal host): pc853.emulab.net
 # Example (virtual machine): 10.254.3.128

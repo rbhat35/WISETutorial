@@ -17,7 +17,7 @@ for host in $all_hosts; do
   echo "  [$(date +%s)] Limiting socket backlog in host $host"
   ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
       BatchMode=yes $USERNAME@$host "
-    sudo sysctl -w net.core.somaxconn=64
+    sudo sysctl -w net.core.somaxconn=$SOMAXCONN
   "
 done
 
@@ -457,22 +457,22 @@ done
 echo "[$(date +%s)] Processor setup:"
 if [[ $HOSTS_TYPE = "physical" ]]; then
   if [[ $HARDWARE_TYPE = "c8220" ]]; then
-  for host in $all_hosts; do
-    echo "  [$(date +%s)] Disabling cores in host $host"
-    ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
-        BatchMode=yes $USERNAME@$host "
-      for i in \$(seq 4 39); do echo 0 | sudo tee /sys/devices/system/cpu/cpu\$i/online; done
-    "
-  done
+    for host in $all_hosts; do
+      echo "  [$(date +%s)] Disabling cores in host $host"
+      ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
+          BatchMode=yes $USERNAME@$host "
+        for i in \$(seq $CPUCORES 39); do echo 0 | sudo tee /sys/devices/system/cpu/cpu\$i/online; done
+      "
+    done
   fi
   if [[ $HARDWARE_TYPE = "d430" ]]; then
-  for host in $all_hosts; do
-    echo "  [$(date +%s)] Disabling cores in host $host"
-    ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
-        BatchMode=yes $USERNAME@$host "
-      for i in \$(seq 4 31); do echo 0 | sudo tee /sys/devices/system/cpu/cpu\$i/online; done
-    "
-  done
+    for host in $all_hosts; do
+      echo "  [$(date +%s)] Disabling cores in host $host"
+      ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
+          BatchMode=yes $USERNAME@$host "
+        for i in \$(seq $CPUCORES 31); do echo 0 | sudo tee /sys/devices/system/cpu/cpu\$i/online; done
+      "
+    done
   fi
 fi
 
