@@ -1,5 +1,5 @@
 # Change to the parent directory.
-cd $(dirname "$(dirname "$(readlink -fm "$0")")")
+cd ../
 
 # Source OpenStack configuration file.
 source conf/openstack_config.sh
@@ -10,11 +10,11 @@ sed -i "s/^read /# read /g" conf/admin-openrc.sh
 sed -i "s/\$OS_PASSWORD_INPUT/$OPENSTACK_PASSWD/g" conf/admin-openrc.sh
 
 echo "Copying the OpenStack credentials file to your cloud's controller node..."
-scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no conf/admin-openrc.sh $CLOUDLAB_USERNAME@$OPENSTACK_CTLHOST:.
+scp -i ~/.ssh/elba -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ../conf/admin-openrc.sh $CLOUDLAB_USERNAME@$OPENSTACK_CTLHOST:.
 
 # Launch VMs: node1 is instantiated on cp-1, node2 is instantiated on cp-2, and
 # so on in a circular way.
-ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
+ssh -i ~/.ssh/elba -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o \
     BatchMode=yes $CLOUDLAB_USERNAME@$OPENSTACK_CTLHOST "
   source admin-openrc.sh
   for i in {1..$OPENSTACK_NVIRTUALMACHINES}; do
