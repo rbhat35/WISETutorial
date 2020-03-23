@@ -50,3 +50,7 @@ python parsers/rt_dist.py 80 experiment/analysis/client
 python parsers/rt_pit.py 80 experiment/analysis/client
 # Calculate the queue length in the database server
 python parsers/queue_length.py 5432 experiment/analysis/auth/ experiment/analysis/inbox/ experiment/analysis/queue/ experiment/analysis/sub/ experiment/analysis/microblog/
+
+mkdir -p vis/data
+rm -rf vis/data/*
+mv *.data vis/data
