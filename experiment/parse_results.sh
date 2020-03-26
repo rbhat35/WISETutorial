@@ -31,16 +31,33 @@ tar -xzf analysis/log-sub*.tar.gz -C analysis/sub
 cd ../
 
 
-# Parse CPU utilization logs collected from the database server
-cpu_fn=`ls experiment/analysis/db/*.cpu`
-python parsers/cpu.py $cpu_fn
-# Parse memory utilization logs collected from the database server
-mem_fn=`ls experiment/analysis/db/*.tab`
-python parsers/mem.py $mem_fn
-# Parse disk utilization logs collected from the database server
-disk_fn=`ls experiment/analysis/db/*.dsk`
-python parsers/disk.py $disk_fn
+# Make empty dir for data files and plots
+mkdir -p vis/data
+rm -rf vis/data/*
+mkdir -p vis/plots
+rm -rf vis/plots/*
 
+# save .data files for each service in appropriate place
+for service in "auth" "client" "db" "inbox" "microblog" "queue" "sub"; do
+    # Parse CPU utilization logs collected from the database server
+    cpu_fn=`ls experiment/analysis/$service/*.cpu`
+    python parsers/cpu.py $cpu_fn
+    # Parse memory utilization logs collected from the database server
+    mem_fn=`ls experiment/analysis/$service/*.tab`
+    python parsers/mem.py $mem_fn
+    # Parse disk utilization logs collected from the database server
+    disk_fn=`ls experiment/analysis/$service/*.dsk`
+    python parsers/disk.py $disk_fn
+
+    # Make empty subfolders for service's data and plots
+    mkdir -p vis/data/$service
+    mkdir -p vis/plots/$service
+    rm -rf vis/data/$service/*
+    rm -rf vis/plots/$service/*
+
+    # Move all results into the appropriate subfolder within vis/data folder
+    mv *.data vis/data/$service
+done 
 
 # Calculate the number of requests per second
 python parsers/requests_per_sec.py 80 experiment/analysis/client
@@ -51,12 +68,8 @@ python parsers/rt_pit.py 80 experiment/analysis/client
 # Calculate the queue length in the database server
 python parsers/queue_length.py 5432 experiment/analysis/auth/ experiment/analysis/inbox/ experiment/analysis/queue/ experiment/analysis/sub/ experiment/analysis/microblog/
 
-# Move all results into the vis/data folder
-mkdir -p vis/data
-rm -rf vis/data/*
+# move all the network results into main data folder
 mv *.data vis/data
 
 # Generate plots from the data
-mkdir -p vis/plots
-rm -rf vis/plots/*
 python3 vis/plot_graphs.py 
