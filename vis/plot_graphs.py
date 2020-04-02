@@ -51,7 +51,7 @@ def requests_per_sec():
     plt.plotfile(fname = DATA_ROOT_DIR + "requests_per_sec.data", cols=(0,1), skiprows=0, delimiter=" ", newfig=False, label="Requests")
     plt.title("Requests per Second")
     plt.xlabel("Time (seconds)")
-    plt.ylabel("Queue Length")
+    plt.ylabel("# Requests")
     plt.legend()
     plt.grid()
     plt.savefig(PLOT_SAVE_LOCATION + "reqs_per_sec")
