@@ -10,7 +10,7 @@ sed -i "s/^read /# read /g" conf/admin-openrc.sh
 sed -i "s/\$OS_PASSWORD_INPUT/$OPENSTACK_PASSWD/g" conf/admin-openrc.sh
 
 echo "Copying the OpenStack credentials file to your cloud's controller node..."
-scp -i ~/.ssh/elba -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ../conf/admin-openrc.sh $CLOUDLAB_USERNAME@$OPENSTACK_CTLHOST:.
+scp -i ~/.ssh/elba -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no conf/admin-openrc.sh $CLOUDLAB_USERNAME@$OPENSTACK_CTLHOST:.
 
 # Launch VMs: node1 is instantiated on cp-1, node2 is instantiated on cp-2, and
 # so on in a circular way.

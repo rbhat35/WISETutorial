@@ -13,11 +13,11 @@
 export OS_AUTH_URL=http://ctl:5000/v3
 # With the addition of Keystone we have standardized on the term **project**
 # as the entity that owns the resources.
-export OS_PROJECT_ID=48705dbac57b464dbe9e1eda112d8261
+export OS_PROJECT_ID=ccbf248ac0844314884ff8513fa5705f
 export OS_PROJECT_NAME="admin"
 export OS_USER_DOMAIN_NAME="default"
 if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
-export OS_PROJECT_DOMAIN_ID="dececd8e876d460a813c7caa7fe11ead"
+export OS_PROJECT_DOMAIN_ID="c970d2ee604e4cc990d43abf3d61213d"
 if [ -z "$OS_PROJECT_DOMAIN_ID" ]; then unset OS_PROJECT_DOMAIN_ID; fi
 # unset v2.0 items in case set
 unset OS_TENANT_ID

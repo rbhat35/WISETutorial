@@ -12,7 +12,7 @@ class MemEntry:
         self._used = used
 
     def percentage(self):
-        return round(self._used / self._tot, 2) * 100
+        return round(self._used / self._tot, 10) * 100
 
 
 def main():

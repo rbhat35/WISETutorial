@@ -22,4 +22,4 @@ for image_name in common_images:
     fig, ax = plt.subplots(1,2)
     ax[0].imshow(img_A)
     ax[1].imshow(img_B)
-    plt.savefig(output_destination + image_name.replace('/', '-'))
+    plt.savefig(output_destination + image_name.replace('/', '-'), dpi=300)
