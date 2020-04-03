@@ -31,4 +31,10 @@ ssh -i ~/.ssh/elba -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=n
         --network tun0-net \
         node\${i}
   done
+
+  pip3 install python-openstackclient
+  openstack floating ip create --project admin --subnet ext-subnet ext-net
+  ALLOCATED_IP_ADDRESS_VALUE=\`openstack floating ip list -c 'Floating IP Address' -f value | head -1\`
+  openstack server add floating ip node1 \$ALLOCATED_IP_ADDRESS_VALUE
+  echo \"Access node1 via IP address:   \$ALLOCATED_IP_ADDRESS_VALUE\"
 "
