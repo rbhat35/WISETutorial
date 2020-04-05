@@ -425,6 +425,26 @@ for session in ${sessions[*]}; do
   wait $session
 done
 
+echo "[$(date +%s)] Stress Test 1 setup:"
+sessions=()
+n_sessions=0
+for host in $STRESS_TEST_1; do
+  echo "  [$(date +%s)] Setting up stress test #1 on host $host"
+
+  ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
+      -o BatchMode=yes $USERNAME@$host "
+    # Install stress-ng
+    sudo DEBIAN_FRONTEND=noninteractive apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y stress-ng
+
+    $wise_home/microblog_bench/stress-test/stress_test_1_scripts/start_stress_test.sh
+  " &
+  sessions[$n_sessions]=$!
+  let n_sessions=n_sessions+1
+done
+for session in ${sessions[*]}; do
+  wait $session
+done
 
 echo "[$(date +%s)] Client setup:"
 sessions=()
@@ -563,6 +583,33 @@ for host in $CLIENT_HOSTS; do
   "
 done
 
+echo "[$(date +%s)] Stress Test 1 tear down:"
+for host in $WEB_HOSTS; do
+  echo "  [$(date +%s)] Tearing down Stress Test 1 on host $host"
+  ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
+      -o BatchMode=yes $USERNAME@$host "
+    # Stop server.
+    $wise_home/microblog_bench/stress-test/stress_test_1_scripts/stop_stress_test.sh
+
+    # Stop resource monitors.
+    sudo pkill collectl
+    sleep 8
+
+    # Collect log data.
+    mkdir logs
+    mv $wise_home/collectl/data/coll-* logs/
+    gzip -d logs/coll-*
+    cat /proc/spec_connect > logs/spec_connect.csv
+    cat /proc/spec_sendto > logs/spec_sendto.csv
+    cat /proc/spec_recvfrom > logs/spec_recvfrom.csv
+    tar -C logs -czf log-stress-test-1-\$(echo \$(hostname) | awk -F'[-.]' '{print \$1\$2}').tar.gz ./
+
+    # Stop event monitors.
+    sudo rmmod spec_connect
+    sudo rmmod spec_sendto
+    sudo rmmod spec_recvfrom
+  "
+done
 
 echo "[$(date +%s)] Web tear down:"
 for host in $WEB_HOSTS; do
