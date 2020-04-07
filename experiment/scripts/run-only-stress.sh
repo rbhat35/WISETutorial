@@ -9,7 +9,7 @@ source conf/config.sh
 
 
 # Copy variables.
-all_hosts="$CLIENT_HOSTS $WEB_HOSTS $POSTGRESQL_HOST $WORKER_HOSTS $MICROBLOG_HOSTS $AUTH_HOSTS $INBOX_HOSTS $QUEUE_HOSTS $SUB_HOSTS $STRESS_TEST_1"
+all_hosts="$STRESS_TEST_1"
 
 
 echo "[$(date +%s)] Socket setup:"
