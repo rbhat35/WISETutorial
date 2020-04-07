@@ -83,7 +83,7 @@ for host in $all_hosts; do
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
     rm -rf WISETutorial
-    git clone git@github.com:coc-gatech-newelba/WISETutorial.git
+    git clone git@github.com:rbhat35/WISETutorial.git
     rm -rf $wise_home
     mv WISETutorial $fs_rootdir
 
