@@ -78,7 +78,7 @@ def point_in_time_distribution():
     plt.grid()
     plt.savefig(PLOT_SAVE_LOCATION + "point_in_time_distribution")
 
-for serviceName in ["auth", "client", "db", "inbox", "microblog", "queue", "sub"]:
+for serviceName in ["auth", "client", "db", "inbox", "microblog", "queue", "sub", "stress-test-1"]:
     cpu(serviceName)
     disk(serviceName)
     mem(serviceName)

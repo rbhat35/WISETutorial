@@ -24,6 +24,9 @@ tar -xzf analysis/log-queue*.tar.gz -C analysis/queue
 # Uncompress the log files collected from the subscription server
 mkdir -p analysis/sub
 tar -xzf analysis/log-sub*.tar.gz -C analysis/sub
+# Uncompress the log files collected from stress-test-1 server
+mkdir -p analysis/stress-test-1
+tar -xzf analysis/log-stress-test-1*.tar.gz -C analysis/stress-test-1
 
 
 ############
@@ -38,7 +41,7 @@ mkdir -p vis/plots
 rm -rf vis/plots/*
 
 # save .data files for each service in appropriate place
-for service in "auth" "client" "db" "inbox" "microblog" "queue" "sub"; do
+for service in "auth" "client" "db" "inbox" "microblog" "queue" "sub" "stress-test-1"; do
     # Parse CPU utilization logs collected from the database server
     cpu_fn=`ls experiment/analysis/$service/*.cpu`
     python3 parsers/cpu.py $cpu_fn
