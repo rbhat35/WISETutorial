@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Change to the parent directory.
 cd ../
 
