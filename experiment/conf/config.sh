@@ -19,23 +19,23 @@ CPUCORES=4
 # Hostnames of each tier.
 # Example (bare metal host): pc853.emulab.net
 # Example (virtual machine): 10.254.3.128
-readonly WEB_HOSTS="10.254.1.173"
-readonly POSTGRESQL_HOST="10.254.2.94"
-readonly WORKER_HOSTS="10.254.0.83"
-readonly MICROBLOG_HOSTS="10.254.2.27"
+readonly WEB_HOSTS="10.254.0.235"
+readonly POSTGRESQL_HOST="10.254.1.111"
+readonly WORKER_HOSTS="10.254.1.159"
+readonly MICROBLOG_HOSTS="10.254.1.78"
 readonly MICROBLOG_PORT=9090
-readonly AUTH_HOSTS="10.254.3.212"
+readonly AUTH_HOSTS="10.254.1.96"
 readonly AUTH_PORT=9091
-readonly INBOX_HOSTS="10.254.0.113"
+readonly INBOX_HOSTS="10.254.0.135"
 readonly INBOX_PORT=9092
-readonly QUEUE_HOSTS="10.254.1.161"
+readonly QUEUE_HOSTS="10.254.0.27"
 readonly QUEUE_PORT=9093
-readonly SUB_HOSTS="10.254.1.99"
+readonly SUB_HOSTS="10.254.3.120"
 readonly SUB_PORT=9094
-readonly CLIENT_HOSTS="10.254.2.120"
+readonly CLIENT_HOSTS="10.254.0.6"
 
 # Hostname of stress-testing nodes
-readonly STRESS_TEST_1="10.254.1.222"
+readonly STRESS_TEST_1="10.254.3.72"
 readonly STRESS_TEST_2="clnode016.clemson.cloudlab.us"
 readonly STRESS_TEST_3="clnode016.clemson.cloudlab.us"
 
