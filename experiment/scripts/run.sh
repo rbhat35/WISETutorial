@@ -436,7 +436,9 @@ for host in $STRESS_TEST_1; do
     # Install stress-ng
     sudo DEBIAN_FRONTEND=noninteractive apt-get update
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y stress-ng
-
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y screen
+    screen -d -m
+    chmod +x $wise_home/microblog_bench/stress-test/stress_test_1_scripts/start_stress_test.sh
     $wise_home/microblog_bench/stress-test/stress_test_1_scripts/start_stress_test.sh
   " &
   sessions[$n_sessions]=$!
@@ -589,6 +591,7 @@ for host in $WEB_HOSTS; do
   ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
       -o BatchMode=yes $USERNAME@$host "
     # Stop server.
+    chmod +x $wise_home/microblog_bench/stress-test/stress_test_1_scripts/stop_stress_test.sh
     $wise_home/microblog_bench/stress-test/stress_test_1_scripts/stop_stress_test.sh
 
     # Stop resource monitors.
