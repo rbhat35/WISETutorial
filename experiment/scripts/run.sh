@@ -581,7 +581,7 @@ for host in $CLIENT_HOSTS; do
 done
 
 echo "[$(date +%s)] Stress Test 1 tear down:"
-for host in $WEB_HOSTS; do
+for host in $STRESS_TEST_1; do
   echo "  [$(date +%s)] Tearing down Stress Test 1 on host $host"
   ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
       -o BatchMode=yes $USERNAME@$host "
