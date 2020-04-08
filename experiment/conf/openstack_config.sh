@@ -2,7 +2,7 @@
 CLOUDLAB_USERNAME="rbhat35"
 
 # Experiment name listed in the CloudLab's experiment page.
-CLOUDLAB_EXPNAME="rbhat35-QV68292"
+CLOUDLAB_EXPNAME="rbhat35-QV68697"
 
 # Name of the cluster where your cloud was instantiated. For example, "clemson"
 # for c8220 nodes.
@@ -13,11 +13,11 @@ CLOUDLAB_PROJNAME=infosphere-pg0
 
 # Your cloud's password. Listed under section "Profile Instructions" in the
 # CloudLab's experiment page.
-OPENSTACK_PASSWD="4e617bdc1f5b"
+OPENSTACK_PASSWD="0546b4ca4285"
 
 # Hostname of your cloud's controller (ctl) node. Listed in the CloudLab's
 # experiment page.
-OPENSTACK_CTLHOST="clnode020.clemson.cloudlab.us"
+OPENSTACK_CTLHOST="clnode049.clemson.cloudlab.us"
 
 # Number of computing nodes in your cloud.
 OPENSTACK_NCOMPUTINGNODES=3
