@@ -90,11 +90,15 @@ def point_in_time_distribution():
     plt.savefig(PLOT_SAVE_LOCATION + "point_in_time_distribution")
 
 for serviceName in ["auth", "client", "db", "inbox", "microblog", "queue", "sub", "stress-test-1"]:
-    cpu(serviceName)
-    for i in range(4):
-        plot_by_cpu(serviceName, i)
-    disk(serviceName)
-    mem(serviceName)
+    try:
+        cpu(serviceName)
+        for i in range(4):
+            plot_by_cpu(serviceName, i)
+        disk(serviceName)
+        mem(serviceName)
+    except Exception:
+        pass
+    
 
 queue_length()
 requests_per_sec()
