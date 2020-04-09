@@ -3,8 +3,8 @@ from glob import glob
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-PATH_1 = './phase1_plots/'
-PATH_2 = './run1_plots/'
+PATH_1 = './baseline_plots/'
+PATH_2 = './cpu_stress_test_plots/'
 output_destination = './side_by_side_images/'
 
 
@@ -22,4 +22,6 @@ for image_name in common_images:
     fig, ax = plt.subplots(1,2)
     ax[0].imshow(img_A)
     ax[1].imshow(img_B)
+    ax[0].title.set_text(PATH_1)
+    ax[1].title.set_text(PATH_2)
     plt.savefig(output_destination + image_name.replace('/', '-'), dpi=300)

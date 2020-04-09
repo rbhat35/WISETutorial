@@ -16,6 +16,16 @@ def cpu(serviceName):
     plt.grid()
     plt.savefig(PLOT_SAVE_LOCATION + serviceName + "/" + "cpu")
 
+def plot_by_cpu(serviceName, i):
+    plt.clf()
+    plt.plotfile(fname = DATA_ROOT_DIR + serviceName + "/" + "cpu" + str(i) + ".data", cols=(0,1), skiprows=0, delimiter=" ", newfig=False, label=str("CPU " + str(i)))
+    plt.title("CPU " + str(i) + " Plot")
+    plt.xlabel("Time (seconds)")
+    plt.ylabel("CPU utilization (%)")
+    plt.legend()
+    plt.grid()
+    plt.savefig(PLOT_SAVE_LOCATION + serviceName + "/" + "cpu-" + str(i))
+
 def disk(serviceName):
     plt.clf()
     plt.plotfile(fname = DATA_ROOT_DIR + serviceName + "/" + "diskread.data", cols=(0,1), skiprows=0, delimiter=" ", newfig=False, label="Read")
@@ -81,6 +91,8 @@ def point_in_time_distribution():
 
 for serviceName in ["auth", "client", "db", "inbox", "microblog", "queue", "sub", "stress-test-1"]:
     cpu(serviceName)
+    for i in range(4):
+        plot_by_cpu(serviceName, i)
     disk(serviceName)
     mem(serviceName)
 
