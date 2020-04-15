@@ -4,3 +4,5 @@
 *.png
 experiment/analysis
 experiment/elba
+vis/data
+vis/plots
