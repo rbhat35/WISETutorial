@@ -36,8 +36,6 @@ readonly CLIENT_HOSTS="10.254.0.6"
 
 # Hostname of stress-testing nodes
 readonly STRESS_TEST_1="10.254.3.72"
-readonly STRESS_TEST_2="clnode016.clemson.cloudlab.us"
-readonly STRESS_TEST_3="clnode016.clemson.cloudlab.us"
 
 # Apache/mod_wsgi configuration.
 readonly APACHE_PROCESSES=8

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 PATH_1 = './baseline_plots/'
-PATH_2 = './cpu_stress_test_plots/'
+PATH_2 = './stress_test_plots/'
 output_destination = './side_by_side_images/'
 
 
