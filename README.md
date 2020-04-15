@@ -15,4 +15,6 @@ To run a Noisy Neighbor experimet, in the [config file](./experiment/conf/config
 
 Note, also, that some of my scripts assume that you have an RSA `public key`/`private key` pair named `elba.pub`/`elba` that you use with your CloudLab account. Feel free to find-and-replace this out if necessary.
 
-### Configuring Stress Test
+### Configuring Noisy Neighbor Experiment
+To simulate noisy neighbors, we run stress tests. You can stress whatever you want, as long as stress-ng supports it. To configure your test, simply edit the [start_stress_test.sh file](./microblog_bench/stress-test/stress_test_1_scripts/start_stress_test.sh "Stress Test Start Script"). You may also need to edit end_stress_test.sh, found in the same directory, based on what you're doing.
+If you find yourself constrained by stress-ng, in theory, you could also edit the start_stress_test.sh file so that it installs some other stress test package and starts it up.
