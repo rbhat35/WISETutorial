@@ -16,7 +16,7 @@ To run a Noisy Neighbor experimet, in the [config file](./experiment/conf/config
 Note, also, that some of my scripts assume that you have an RSA `public key`/`private key` pair named `elba.pub`/`elba` that you use with your CloudLab account. Feel free to find-and-replace this out if necessary.
 
 ### Files Modified in This Generation of the Toolkit
-This is the list of files I had to edit to support the new features in this generation of the toolkit.
+This is the list of files I had to edit to support the new features in this generation of the toolkit. It's not exhaustive -- it just highlights some key changes/contributions.
 1. [run.sh](./experiment/scripts/run.sh "run.sh file") -- This is script used to launch the experiments and is therefore where we start the stress test.
 1. [start_stress_test.sh file](./microblog_bench/stress-test/stress_test_1_scripts/start_stress_test.sh "Stress Test Start Script") --  This file essentially configures the stress test.
 1. [openstack_setup.sh file](./experiment/scripts/openstack_setup.sh "OpenStack Setup Script") -- This is where the public-facing IP is automatically assigned.
