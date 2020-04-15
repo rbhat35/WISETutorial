@@ -1,14 +1,14 @@
 # If using bare metal hosts, set with your CloudLab username.
 # If using virtual machines (appendix A of the tutorial), set with "ubuntu".
-readonly USERNAME="ubuntu"
+readonly USERNAME="<FILL IN>"
 
 # If using bare metal hosts, set with "physical".
 # If using virtual machines (appendix A of the tutorial), set with "vm".
-readonly HOSTS_TYPE="vm"
+readonly HOSTS_TYPE="<FILL IN>"
 
 # If using profile MicroblogBareMetalD430, set with "d430".
 # If using profile MicroblogBareMetalC8220, set with "c8220".
-readonly HARDWARE_TYPE="c8220"
+readonly HARDWARE_TYPE="<FILL IN>"
 
 # Maximum length to which the queue of pending connections of a socket may grow.
 SOMAXCONN=64
@@ -19,23 +19,21 @@ CPUCORES=4
 # Hostnames of each tier.
 # Example (bare metal host): pc853.emulab.net
 # Example (virtual machine): 10.254.3.128
-readonly WEB_HOSTS="10.254.0.235"
-readonly POSTGRESQL_HOST="10.254.1.111"
-readonly WORKER_HOSTS="10.254.1.159"
-readonly MICROBLOG_HOSTS="10.254.1.78"
+readonly WEB_HOSTS="<FILL IN>"
+readonly POSTGRESQL_HOST="<FILL IN>"
+readonly WORKER_HOSTS="<FILL IN>"
+readonly MICROBLOG_HOSTS="<FILL IN>"
 readonly MICROBLOG_PORT=9090
-readonly AUTH_HOSTS="10.254.1.96"
+readonly AUTH_HOSTS="<FILL IN>"
 readonly AUTH_PORT=9091
-readonly INBOX_HOSTS="10.254.0.135"
+readonly INBOX_HOSTS="<FILL IN>"
 readonly INBOX_PORT=9092
-readonly QUEUE_HOSTS="10.254.0.27"
+readonly QUEUE_HOSTS="<FILL IN>"
 readonly QUEUE_PORT=9093
-readonly SUB_HOSTS="10.254.3.120"
+readonly SUB_HOSTS="<FILL IN>"
 readonly SUB_PORT=9094
-readonly CLIENT_HOSTS="10.254.0.6"
-
-# Hostname of stress-testing nodes
-readonly STRESS_TEST_1="10.254.3.72"
+readonly CLIENT_HOSTS="<FILL IN>"
+readonly STRESS_TEST_1="<FILL IN>"
 
 # Apache/mod_wsgi configuration.
 readonly APACHE_PROCESSES=8
