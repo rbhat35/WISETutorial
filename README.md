@@ -2,6 +2,8 @@
 
 This project extends the capabilities of the [WISE Toolkit](https://github.com/coc-gatech-newelba/WISETutorial "Previous Generation Toolkit") to support a new class of experiments.
 
+My [final report](./final_report.pdf "Project Report") contains a summary of the key changes I have made from the previous version of the WISE Toolkit.
+
 ## Background & Tutorial
 * An introduction to the WISE Toolkit & its uses can be found in [proposal.pdf](./proposal.pdf "Project Proposal"). Note, this toolkit was designed to support many of the experiments I proposed.
 * A tutorial on how to run experiments & use the toolkit can be found [here](https://www.cc.gatech.edu/~ral3/tutorial2.html "Tutorial").
@@ -36,3 +38,4 @@ If you find yourself constrained by stress-ng, in theory, you could also edit th
 * If you want to fork the repository and make changes, make sure to modify [run.sh](./experiment/scripts/run.sh "run.sh file") so that it clones the repository from your fork. Since we are cloning the repository inside this file without authentication, you'll probably need to make your copy of this repository public as well.
 * If you want to run multiple different stress tests (e.g. one that stresses disk on one host, and one that stresses CPU on another), you can start by retracing my modifications in [run.sh](./experiment/scripts/run.sh "run.sh file") at the lines I mentioned.
 * Feel free to reach out to me if there are any issues.
+* In Appendix A of the [tutorial](https://www.cc.gatech.edu/~ral3/tutorial2.html "Tutorial"), you can skip the section devoted to Public-Facing IP Allocation as this is automatically handled in this version of the tool.
