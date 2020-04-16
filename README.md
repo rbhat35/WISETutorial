@@ -7,7 +7,7 @@ My [final report](./final_report.pdf "Project Report") contains a summary of the
 ## Background & Tutorial
 * An introduction to the WISE Toolkit & its uses can be found in [proposal.pdf](./proposal.pdf "Project Proposal"). Note, this toolkit was designed to support many of the experiments I proposed.
 * A tutorial on how to run experiments & use the toolkit can be found [here](https://www.cc.gatech.edu/~ral3/tutorial2.html "Tutorial").
-* [Video](https://youtu.be/sZfsjAb-Rfo "Video Presentation") explaining the differences between this toolkit and the previous generation of the toolkit. The slides found in this video can be found [here](https://drive.google.com/file/d/1g5CbYgyLRUvpduylru1-3ZX5Ze2ObHw4/view?usp=sharing "Presentation Slides").
+* [Video](https://youtu.be/sZfsjAb-Rfo "Video Presentation") explaining the differences between this toolkit and the previous generation of the toolkit. The slides found in this video can be found [here](./slides.pdf "Presentation Slides").
 
 ## Using this Toolkit
 ### Running Experiments
